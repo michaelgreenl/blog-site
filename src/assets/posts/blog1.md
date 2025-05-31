@@ -2,7 +2,7 @@
 title: "My First Big Adventure"
 date: "2025-05-15"
 tags: ["travel", "personal"]
-author: "Your Name"
+description: "This is a blog post description"
 ---
 
 # Blog 1

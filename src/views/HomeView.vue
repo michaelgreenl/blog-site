@@ -20,7 +20,7 @@ onMounted(async () => {
         slug,
         title: data.title || 'Untitled Post',
         date: data.date,
-        // ... can add other frontmatter data
+        description: data.description,
       });
     } catch (e) {
       console.error("Error processing post for list:", path, e);
@@ -41,6 +41,7 @@ onMounted(async () => {
         <router-link :to="{ name: 'Post', params: { slug: post.slug } }">
           <h2>{{ post.title }}</h2>
         </router-link>
+        <p v-if="post.description">{{ post.description }}</p>
         <p v-if="post.date">{{ new Date(post.date).toLocaleDateString() }}</p>
       </li>
     </ul>
