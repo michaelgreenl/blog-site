@@ -1,9 +1,12 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
+import LogoSVG from "./SVGs/logoSVG.vue";
 </script>
 
 <template>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-  </nav>
+  <header>
+    <RouterLink to="/">
+      <LogoSVG />
+    </RouterLink>
+  </header>
 </template>
