@@ -80,13 +80,11 @@ const formatDate = (dateString) => {
     <article v-else-if="postContent" class="blog-post">
       <header v-if="frontmatter.title">
         <h1>{{ frontmatter.title }}</h1>
-        <p v-if="frontmatter.date" class="post-meta">Published on: {{ formatDate(frontmatter.date) }}</p>
-        <p v-if="frontmatter.author" class="post-meta">By: {{ frontmatter.author }}</p>
+        <p v-if="frontmatter.date" class="post-meta">Published on {{ formatDate(frontmatter.date) }}</p>
         <div v-if="frontmatter.tags && frontmatter.tags.length" class="tags">
-          Tags: <span v-for="tag in frontmatter.tags" :key="tag" class="tag">{{ tag }}</span>
+          Tags: <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}&nbsp;</span>
         </div>
       </header>
-      <hr v-if="frontmatter.title" />
       <div v-html="renderedMarkdown"></div>
     </article>
     <div v-else class="not-found">
