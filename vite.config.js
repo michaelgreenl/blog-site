@@ -16,6 +16,13 @@ export default defineConfig({
       process: true,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assests/styles/_fonts.scss"; @import "@/styles/_mixins.scss"; @import "@/styles/_variables.scss";`,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
