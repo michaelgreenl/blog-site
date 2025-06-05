@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect, computed } from 'vue';
+import { ref, watchEffect, computed, nextTick } from 'vue';
 import { marked } from 'marked';
 import matter from 'gray-matter';
 import Prism from 'prismjs';
@@ -16,13 +16,6 @@ const props = defineProps({
 });
 
 marked.setOptions({
-  highlight: (code, lang) => {
-    if (Prism.languages[lang]) {
-      return Prism.highlight(code, Prism.languages[lang], lang);
-    } else {
-      return code;
-    }
-  },
   gfm: true,
   breaks: true,
 });
@@ -76,6 +69,15 @@ const loadPost = async (slug) => {
 watchEffect(() => {
   if (props.slug) {
     loadPost(props.slug);
+  }
+});
+
+// Watch for content to be loaded and then apply highlighting
+watchEffect(() => {
+  if (!isLoading.value && postContent.value) {
+    nextTick(() => {
+      Prism.highlightAll();
+    });
   }
 });
 
