@@ -315,8 +315,6 @@
   src: url('../fonts/SFpro/SF-Pro-Text-UltralightItalic.otf') format('opentype');
 }
 
-/* SF Pro (Base/Default) */
-/* Assuming SF-Pro.ttf is Regular weight */
 @font-face {
   font-family: 'SF Pro';
   font-style: normal;
@@ -324,7 +322,6 @@
   src: url('../fonts/SFpro/SF-Pro.ttf') format('truetype');
 }
 
-/* Assuming SF-Pro-Italic.ttf is Regular Italic weight */
 @font-face {
   font-family: 'SF Pro';
   font-style: italic;
