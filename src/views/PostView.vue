@@ -2,9 +2,29 @@
 import { ref, watchEffect, computed } from 'vue';
 import { marked } from 'marked';
 import matter from 'gray-matter';
+import Prism from 'prismjs';
+
+// Languages for syntax highlighting
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-json';
+
+// Syntax highlighting theme
+import 'prismjs/themes/prism-okaidia.css';
 
 const props = defineProps({
   slug: String
+});
+
+marked.setOptions({
+  highlight: (code, lang) => {
+    if (Prism.languages[lang]) {
+      return Prism.highlight(code, Prism.languages[lang], lang);
+    } else {
+      return code;
+    }
+  },
+  gfm: true,
+  breaks: true,
 });
 
 const postContent = ref('');
@@ -15,8 +35,6 @@ const error = ref(null);
 // Use a computed property for the final HTML to be rendered
 const renderedMarkdown = computed(() => {
   if (postContent.value) {
-    // Configure marked (optional, e.g., for syntax highlighting or custom renderers)
-    // marked.setOptions({ gfm: true, breaks: true, /* ... other options */ });
     return marked(postContent.value);
   }
   return '';
@@ -36,7 +54,6 @@ const loadPost = async (slug) => {
 
   try {
     // Vite specific: Dynamically import the .md file as a raw string
-    // The `?raw` query is important here.
     const mdModule = await import(`../assets/posts/${slug}.md?raw`);
     const rawMd = mdModule.default; // The raw string content
 
@@ -57,7 +74,6 @@ const loadPost = async (slug) => {
 
 // Watch for changes in the slug prop (e.g., navigating between posts)
 watchEffect(() => {
-  console.log(props);
   if (props.slug) {
     loadPost(props.slug);
   }
@@ -93,4 +109,4 @@ const formatDate = (dateString) => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>
