@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import PostLinkCard from '@/components/PostLinkCard.vue';
 import matter from 'gray-matter';
 
 const posts = ref([]);
@@ -37,13 +38,9 @@ onMounted(async () => {
     <h1>My Blog</h1>
     <div v-if="isLoading">Loading posts...</div>
     <ul v-else>
-      <li v-for="post in posts" :key="post.slug">
-        <router-link :to="{ name: 'Post', params: { slug: post.slug } }">
-          <h2>{{ post.title }}</h2>
-        </router-link>
-        <p v-if="post.description">{{ post.description }}</p>
-        <p v-if="post.date">{{ new Date(post.date).toLocaleDateString() }}</p>
-      </li>
+      <PostLinkCard :posts="posts" />
     </ul>
   </div>
 </template>
+
+<style lang="scss"></style>
