@@ -4,8 +4,20 @@ import NavigationBar from './components/NavigationBar.vue';
 </script>
 
 <template>
-  <NavigationBar />
-  <RouterView />
+  <div class="app">
+    <NavigationBar />
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  font-size: 12px;
+  font-family: $font-primary-text;
+}
+</style>
