@@ -1,6 +1,6 @@
 <script setup>
-import { ref, watchEffect, computed, nextTick } from 'vue';
-import { marked } from 'marked';
+import { ref, watchEffect, nextTick } from 'vue';
+import MdPost from "@/components/MdPost.vue";
 import matter from 'gray-matter';
 import Prism from 'prismjs';
 
@@ -15,23 +15,10 @@ const props = defineProps({
   slug: String
 });
 
-marked.setOptions({
-  gfm: true,
-  breaks: true,
-});
-
 const postContent = ref('');
 const frontmatter = ref({});
 const isLoading = ref(true);
 const error = ref(null);
-
-// Use a computed property for the final HTML to be rendered
-const renderedMarkdown = computed(() => {
-  if (postContent.value) {
-    return marked(postContent.value);
-  }
-  return '';
-});
 
 const loadPost = async (slug) => {
   if (!slug) {
@@ -80,12 +67,6 @@ watchEffect(() => {
     });
   }
 });
-
-const formatDate = (dateString) => {
-  if (!dateString) return '';
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
 </script>
 
 <template>
@@ -95,16 +76,7 @@ const formatDate = (dateString) => {
       <h2>Oops!</h2>
       <p>{{ error }}</p>
     </div>
-    <article v-else-if="postContent" class="blog-post">
-      <header v-if="frontmatter.title">
-        <h1>{{ frontmatter.title }}</h1>
-        <p v-if="frontmatter.date" class="post-meta">Published on {{ formatDate(frontmatter.date) }}</p>
-        <div v-if="frontmatter.tags && frontmatter.tags.length" class="tags">
-          Tags: <span v-for="tag in frontmatter.tags" :key="tag" class="tag">#{{ tag }}&nbsp;</span>
-        </div>
-      </header>
-      <div v-html="renderedMarkdown"></div>
-    </article>
+    <MdPost v-else-if="postContent" :frontmatter="frontmatter" :postContent="postContent" />
     <div v-else class="not-found">
       <p>Post not found.</p>
     </div>
