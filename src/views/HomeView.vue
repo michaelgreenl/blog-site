@@ -22,6 +22,7 @@ onMounted(async () => {
         title: data.title || 'Untitled Post',
         date: data.date,
         description: data.description,
+        tags: data.tags,
       });
     } catch (e) {
       console.error("Error processing post for list:", path, e);
@@ -38,7 +39,9 @@ onMounted(async () => {
     <h1>My Blog</h1>
     <div v-if="isLoading">Loading posts...</div>
     <ul v-else>
-      <PostLinkCard :posts="posts" />
+      <li v-for="post in posts" :key="post.slug">
+        <PostLinkCard :post="post" />
+      </li>
     </ul>
   </div>
 </template>
