@@ -6,7 +6,7 @@ import LogoSVG from './svgs/LogoSVG.vue';
 <template>
   <header class="header">
     <div class="header-content">
-      <RouterLink to="/">
+      <RouterLink class="nav-link" to="/">
         <LogoSVG size="75" />
       </RouterLink>
     </div>
@@ -18,7 +18,7 @@ import LogoSVG from './svgs/LogoSVG.vue';
   width: 100%;
   background-color: $color-bg-secondary;
   border-bottom: 1px solid $color-border-primary;
-  padding: 0 24px;
+  padding: 0.5em 1em;
 }
 
 .header-content {
@@ -26,8 +26,11 @@ import LogoSVG from './svgs/LogoSVG.vue';
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 960px;
-  height: 60px;
+  height: 75px;
   margin: 0 auto;
+}
+
+.nav-link {
+  height: 100%;
 }
 </style>

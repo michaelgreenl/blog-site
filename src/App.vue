@@ -38,7 +38,6 @@ a {
   }
 }
 
-// Layout structure
 .app-container {
   display: flex;
   flex-direction: column;
@@ -47,8 +46,8 @@ a {
 
 .main-content {
   width: 100%;
-  max-width: 960px;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 1.5em 1.5em;
 }
 </style>

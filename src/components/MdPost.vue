@@ -42,7 +42,7 @@ const formatDate = (dateString) => {
   </article>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 pre[class*="language-"] {
   padding: 16px;
   margin: 1em 0;

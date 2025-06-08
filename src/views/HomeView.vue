@@ -50,9 +50,8 @@ onMounted(async () => {
 .page-title {
   font-size: 2em;
   font-weight: 600;
-  margin-bottom: 24px;
   padding-bottom: 8px;
-  border-bottom: 1px solid $color-border-primary;
+  margin-top: 0;
 }
 
 .post-list {
