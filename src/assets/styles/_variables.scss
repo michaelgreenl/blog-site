@@ -1,4 +1,19 @@
 // Fonts
-$font-primary-display: 'SF Pro Display';
-$font-primary-rounded : 'SF Pro Rounded';
-$font-primary-text : 'SF Pro Text';
+// $font-primary-display: 'SF Pro Display';
+// $font-primary-rounded : 'SF Pro Rounded';
+// $font-primary-text : 'SF Pro Text';
+
+// Fonts
+$font-primary-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+// GitHub Dark Theme Color Palette
+$color-bg-primary: #0D1117; // Main background
+$color-bg-secondary: #161B22; // Lighter background for elements
+$color-border-primary: #30363D; // Borders
+$color-border-secondary: #21262D; // Softer borders
+$color-text-primary: #E6EDF3; // Primary text
+$color-text-secondary: #8B949E; // Secondary/muted text
+$color-text-link: #58A6FF; // Links and interactive elements
+$color-tag-fg: #C9D1D9;
+$color-tag-bg: rgba(88, 166, 255, 0.1);
+$color-tag-hover-bg: rgba(88, 166, 255, 0.2);

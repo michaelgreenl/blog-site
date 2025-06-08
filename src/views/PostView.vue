@@ -5,11 +5,14 @@ import matter from 'gray-matter';
 import Prism from 'prismjs';
 
 // Languages for syntax highlighting
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-json';
 
 // Syntax highlighting theme
-import 'prismjs/themes/prism-okaidia.css';
+// import 'prismjs/themes/prism-okaidia.css';
 
 const props = defineProps({
   slug: String
@@ -83,4 +86,20 @@ watchEffect(() => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.loading,
+.not-found {
+  color: $color-text-secondary;
+  text-align: center;
+  padding: 48px 0;
+}
+
+.error-message {
+  color: #f85149; // GitHub's error color
+  background-color: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+}
+</style>
