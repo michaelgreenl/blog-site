@@ -36,9 +36,9 @@ onMounted(async () => {
 
 <template>
   <div>
-    <h1>My Blog</h1>
+    <h1 class="page-title">My Blog</h1>
     <div v-if="isLoading">Loading posts...</div>
-    <ul v-else>
+    <ul v-else class="post-list">
       <li v-for="post in posts" :key="post.slug">
         <PostLinkCard :post="post" />
       </li>
@@ -46,4 +46,18 @@ onMounted(async () => {
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.page-title {
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $color-border-primary;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
