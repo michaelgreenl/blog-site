@@ -1,7 +1,8 @@
 <template>
   <footer class="footer">
     <span class="footer-text">
-      © 2025 [DomainName] . All Rights Reserved.
+      © 2025 [DomainName] |
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Terms of Use</a>
     </span>
   </footer>
 </template>
@@ -18,5 +19,10 @@
 .footer-text {
   color: $color-text-secondary;
   font-size: 0.75em;
+}
+
+a {
+  color: $color-text-secondary;
+  text-decoration: underline;
 }
 </style>
