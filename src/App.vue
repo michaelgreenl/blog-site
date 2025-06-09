@@ -1,5 +1,6 @@
 <script setup>
 import NavigationBar from './components/NavigationBar.vue';
+import FooterComp from './components/FooterComp.vue';
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import NavigationBar from './components/NavigationBar.vue';
     <main class="main-content">
       <router-view />
     </main>
+    <FooterComp />
   </div>
 </template>
 
