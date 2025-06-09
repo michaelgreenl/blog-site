@@ -27,6 +27,9 @@ function toggleShowMore() {
 <template>
   <div class="post-card">
     <div class="main-content">
+      <div class="meta-date" v-if="props.post.date">
+        {{ new Date(props.post.date).toLocaleDateString() }}
+      </div>
       <router-link class="title-link" :to="{ name: 'Post', params: { slug: props.post.slug } }">
         <h2>{{ props.post.title }}</h2>
       </router-link>
@@ -41,9 +44,6 @@ function toggleShowMore() {
           {{ showMore ? 'Show Less' : 'Show More' }}
         </span>
       </p>
-    </div>
-    <div class="meta-date" v-if="props.post.date">
-      {{ new Date(props.post.date).toLocaleDateString() }}
     </div>
   </div>
 </template>
@@ -114,7 +114,6 @@ function toggleShowMore() {
   font-size: 0.9em;
   color: $color-text-secondary;
   white-space: nowrap;
-  margin-left: 16px;
-  padding-top: 2px; // Align with title
+  justify-self: flex-end;
 }
 </style>
