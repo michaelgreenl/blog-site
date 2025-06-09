@@ -2,7 +2,7 @@
   <footer class="footer">
     <span class="footer-text">
       © 2025 [DomainName] |
-      <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Terms of Use</a>
+      <a rel="license" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Terms of Use</a>
     </span>
   </footer>
 </template>
