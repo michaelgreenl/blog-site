@@ -26,13 +26,15 @@ function toggleShowMore() {
 
 <template>
   <div class="post-card">
-    <div class="main-content">
-      <div class="meta-date" v-if="props.post.date">
-        {{ new Date(props.post.date).toLocaleDateString() }}
+    <div class="main-card-content">
+      <div class="main-card-title">
+        <router-link class="title-link" :to="{ name: 'Post', params: { slug: props.post.slug } }">
+          <h2>{{ props.post.title }}</h2>
+        </router-link>
+        <div class="meta-date" v-if="props.post.date">
+          {{ new Date(props.post.date).toLocaleDateString() }}
+        </div>
       </div>
-      <router-link class="title-link" :to="{ name: 'Post', params: { slug: props.post.slug } }">
-        <h2>{{ props.post.title }}</h2>
-      </router-link>
 
       <div class="tags-container" v-if="props.post.tags && props.post.tags.length">
         <span v-for="tag in props.post.tags" :key="tag" class="tag">{{ tag }}</span>
@@ -53,12 +55,17 @@ function toggleShowMore() {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 16px 0;
+  padding: 24px 12px;
   border-top: 1px solid $color-border-primary;
 }
 
-.main-content {
+.main-card-content {
   flex-grow: 1;
+}
+
+.main-card-title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .title-link {
@@ -114,6 +121,6 @@ function toggleShowMore() {
   font-size: 0.9em;
   color: $color-text-secondary;
   white-space: nowrap;
-  justify-self: flex-end;
+  padding-top: 4px; // Align with title
 }
 </style>
