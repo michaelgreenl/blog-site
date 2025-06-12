@@ -1,11 +1,14 @@
 <script setup>
 import { computed } from 'vue';
 import { marked } from 'marked';
+import { gfmHeadingId } from 'marked-gfm-heading-id';
 
 const props = defineProps({
   frontmatter: Object,
   postContent: String,
 });
+
+marked.use(gfmHeadingId());
 
 marked.setOptions({
   gfm: true,
