@@ -45,6 +45,89 @@ const formatDate = (dateString) => {
   </article>
 </template>
 
+<!-- Non-scoped styles for PrismJS theme and code fonts -->
+<style lang="scss">
+/* GitHub-like font stack for code */
+pre[class*="language-"],
+:not(pre)>code[class*="language-"] {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+/* GitHub Dark Dimmed-like Prism Theme */
+pre[class*="language-"] {
+  padding: 16px;
+  margin: 1em 0;
+  overflow: auto;
+  border-radius: 6px;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border-primary;
+}
+
+:not(pre)>code[class*="language-"] {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  border-radius: 6px;
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border-primary;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #8B949E;
+}
+
+.token.punctuation {
+  color: #E6EDF3;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #79C0FF;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #A5D6FF;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #E6EDF3;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #FF7B72;
+}
+
+.token.function,
+.token.class-name {
+  color: #D2A8FF;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #FFA657;
+}
+</style>
+
 <style scoped lang="scss">
 .post-header {
   margin-bottom: 32px;
@@ -81,7 +164,6 @@ const formatDate = (dateString) => {
 }
 
 .markdown-body {
-
   :deep(h3) {
     font-size: 1.15em;
     margin-bottom: 4px;
