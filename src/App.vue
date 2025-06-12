@@ -51,7 +51,7 @@ a {
 
 .main-content {
   width: 100%;
-  max-width: 860px;
+  max-width: 1060px;
   margin: 0 auto;
   padding: 1.5em 1.5em;
 }
