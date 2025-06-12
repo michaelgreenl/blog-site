@@ -11,6 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "github-markdown-css": "^5.8.1",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.12",
     "marked-gfm-heading-id": "^4.1.1",

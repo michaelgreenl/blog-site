@@ -14,6 +14,9 @@ import FooterComp from './components/FooterComp.vue';
 </template>
 
 <style lang="scss">
+/* Import the GitHub Markdown dark theme */
+@import 'github-markdown-css/github-markdown-dark.css';
+
 // Global Reset and Base Styles
 *,
 *::before,
@@ -48,7 +51,7 @@ a {
 
 .main-content {
   width: 100%;
-  max-width: 1260px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 1.5em 1.5em;
 }
