@@ -66,6 +66,20 @@ function toggleShowMore() {
 .main-card-title {
   display: flex;
   justify-content: space-between;
+  flex-direction: column-reverse;
+  margin-bottom: 8px;
+
+  .meta-date {
+    align-self: flex-end;
+  }
+
+  @include bp-lg-laptop {
+    flex-direction: row;
+
+    .meta-date {
+      align-self: center;
+    }
+  }
 }
 
 .title-link {
@@ -75,7 +89,7 @@ function toggleShowMore() {
     font-size: 1.25em;
     font-weight: 600;
     color: $color-text-link;
-    margin: 0 0 8px 0;
+    margin: 0;
     display: inline-block;
 
     &:hover {
@@ -121,6 +135,6 @@ function toggleShowMore() {
   font-size: 0.9em;
   color: $color-text-secondary;
   white-space: nowrap;
-  padding-top: 4px; // Align with title
+  // padding-top: 4px; // Align with title
 }
 </style>
