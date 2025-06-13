@@ -47,9 +47,6 @@ const loadPost = async (slug) => {
   } catch (e) {
     console.error(`Failed to load post: ${slug}.md`, e);
     error.value = `Could not load the post "${slug}". It might not exist or there was an error.`;
-    if (e.message.includes('Unknown variable dynamic import')) {
-      error.value += ' (Check if the file exists in src/posts/ and the slug is correct)'
-    }
   } finally {
     isLoading.value = false;
   }
