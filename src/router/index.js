@@ -31,4 +31,16 @@ const router = createRouter({
   },
 })
 
+;(function () {
+  // Check if a redirect path was saved in sessionStorage by 404.html
+  const redirect = sessionStorage.getItem('redirect')
+  if (redirect) {
+    // If so, delete the saved path
+    sessionStorage.removeItem('redirect')
+    // And redirect the user to the originally requested URL
+    const targetUrl = new URL(redirect)
+    router.replace(targetUrl.pathname + targetUrl.search + targetUrl.hash)
+  }
+})()
+
 export default router

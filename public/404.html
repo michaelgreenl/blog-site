@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // Save the full path the user tried to visit, including the query string
+      sessionStorage.redirect = location.href;
+    </script>
+    <!-- Use a meta refresh tag for instant redirection -->
+    <meta http-equiv="refresh" content="0;URL='/'"></meta>
+  </head>
+  <body>
+  </body>
+</html>
+
