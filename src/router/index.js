@@ -31,10 +31,15 @@ const router = createRouter({
   },
 })
 
-const redirectPath = sessionStorage.getItem('redirect')
-if (redirectPath) {
+router.beforeEach((to, from, next) => {
+  const redirectPath = sessionStorage.getItem('redirect')
   sessionStorage.removeItem('redirect')
-  router.replace(redirectPath)
-}
+
+  if (to.path === '/' && redirectPath) {
+    next({ path: redirectPath, replace: true })
+  } else {
+    next()
+  }
+})
 
 export default router
