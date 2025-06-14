@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Save the full path the user tried to visit, including the query string
-      sessionStorage.redirect = location.href;
+      // Save just the path, query, and hash, NOT the full domain
+      sessionStorage.redirect = location.pathname + location.search + location.hash;
     </script>
-    <!-- Use a meta refresh tag for instant redirection -->
-    <meta http-equiv="refresh" content="0;URL='/'"></meta>
+    <meta http-equiv="refresh" content="0;URL='/'">
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>
-
